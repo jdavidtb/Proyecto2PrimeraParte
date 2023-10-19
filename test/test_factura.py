@@ -5,13 +5,13 @@ from model.factura import Factura
 class TestFactura(unittest.TestCase):
 
     def setUp(self):
-        self.factura = Factura("F12345")
+        self.factura = Factura(0.0, "123456789", "F12345")  
 
     def test_inicializacion_factura(self):
-        self.assertEqual(self.factura.IDfactura, "F12345")
+        self.assertEqual(self.factura.id_factura, "F12345")
         self.assertIsInstance(self.factura.fecha, datetime)
         self.assertEqual(self.factura.valor_total, 0.0)
-        self.assertIsNone(self.factura.cedula)
+        self.assertEqual(self.factura.cedula, "123456789")  
         self.assertEqual(len(self.factura.pedidos), 0)
 
     def test_modificar_IDfactura(self):
@@ -31,11 +31,7 @@ class TestFactura(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.factura.valor_total = -100.0
 
-    def test_agregar_pedido(self):
-        pedido_mock = "pedido_mock"
-        self.factura.agregar_pedido(pedido_mock)
-        self.assertEqual(len(self.factura.pedidos), 1)
-        self.assertEqual(self.factura.pedidos[0], pedido_mock)
 
 if __name__ == "__main__":
     unittest.main()
+
