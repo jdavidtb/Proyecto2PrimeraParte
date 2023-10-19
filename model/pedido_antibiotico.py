@@ -42,6 +42,4 @@ class PedidosAntibioticos:
             raise ValueError("El subtotal no puede ser negativo.")
         self._Subtotal = value
 
-    # Si tienes un método para obtener el precio del antibiótico por su ID, puedes calcular el subtotal así:
-    # def calcular_subtotal(self, precio_antibiotico):
-    #     self._Subtotal = self._Cantidad * precio_antibiotico
+
